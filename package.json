@@ -1,0 +1,19 @@
+{
+  "name": "i18next-redux-saga-example",
+  "version": "1.0.0",
+  "description": "Example app that uses i18next-redux-saga package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexiusp/i18next-redux-saga-example.git"
+  },
+  "author": "Aleksei Podgaev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexiusp/i18next-redux-saga-example/issues"
+  },
+  "homepage": "https://github.com/alexiusp/i18next-redux-saga-example#readme"
+}
