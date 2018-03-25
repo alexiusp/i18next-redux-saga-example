@@ -1,21 +1,45 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import i18next from 'i18next';
+
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  changeLanguage = (lang) => (e) => {
+    e.preventDefault();
+    console.log('change language', lang);
+  }
   render() {
-    return (
+    const loading = this.props.loading;
+    return (loading > 0) ? (<img src={logo} className="App-logo" alt="logo" />) : (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <a href="#" onClick={this.changeLanguage('en')} >en</a>
+          <a href="#" onClick={this.changeLanguage('de')} >de</a>
+          <a href="#" onClick={this.changeLanguage('ru')} >de</a>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+        <p className="App-content">
+          <span>{i18next.t('hello')}</span>
         </p>
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = ({ app }) => {
+  const loading = app.loading;
+  return {
+    loading,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onStart: () => {
+      // dispatch();
+    },
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
