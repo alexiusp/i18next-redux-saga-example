@@ -1,13 +1,13 @@
-import 'regenerator-runtime/runtime';
 import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { i18nextInit, i18nextSaga } from 'i18next-redux-saga';
 import reducer from './reducers';
 import rootSaga from './sagas';
+import { defaultLanguage } from './constants/globals';
 
 // simple example i18next config with preloaded translations
 const i18nextConfig = {
-  fallbackLng: 'en',
+  fallbackLng: defaultLanguage,
   load: 'languageOnly',
   whitelist: ['de', 'en', 'ru'],
   debug: true,
